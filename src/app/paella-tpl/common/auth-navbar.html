@@ -1,0 +1,39 @@
+<section class="sidebar" style="height: auto;" ng-controller="UtilsController as utilCtrl">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <a href="#/auth/dashboard"><img src="assets/images/randstad.png" class="img-responsive" alt="Logo"></a>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="{{utilCtrl.ACTIVE_STATE_CLASS['auth.dashboard']}}">
+            <a href="#/auth/dashboard">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="{{utilCtrl.ACTIVE_STATE_CLASS['auth.claim-list']}}">
+          <a href="#/auth/claim-list">
+            <i class="fa fa-list-alt"></i> <span>Claim List</span>
+          </a>
+        </li>
+        <li class="{{utilCtrl.ACTIVE_STATE_CLASS['auth.claim-edit']}}">
+          <a href="#/auth/claim-edit">
+            <i class="fa fa-list-alt"></i> <span>New Claim</span>
+          </a>
+        </li>
+        <li class="{{utilCtrl.ACTIVE_STATE_CLASS['auth.employee-list']}}">
+            <a href="#/auth/employee-list">
+                <i class="fa fa-list-alt"></i> <span>Employee List</span>
+            </a>
+        </li>
+        <li class="{{utilCtrl.ACTIVE_STATE_CLASS['auth.employee-add']}}">
+            <a href="#/auth/employee-add">
+                <i class="fa fa-plus-circle"></i> <span>New Employee</span>
+            </a>
+        </li>
+        <li>
+            <a href="#/gen/logout">
+                <i class="fa fa-sign-out"></i> <span>Sign Out ({{userinfo.FirstName}} {{userinfo.LastName}})</span>
+            </a>
+        </li>
+    </ul>
+</section>

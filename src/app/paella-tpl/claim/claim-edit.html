@@ -1,0 +1,228 @@
+<div class="row" id="dashboard">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body" style="display: inline-block;width:100%;margin-bottom: 50px;">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h3 style="margin-right: 85px;">New Claim</h3>
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <form class="form-signin" action="" style="max-width:100%;">
+                        <div class="col-md-10 padleft0">
+                            <div class="row margin10">
+                               <div class="col-md-6 padright5">
+                                  <select class="form-control radius30" ng-disabled="false" ng-model="claiminfo.employeeId" ng-change="claimedit.selectEmployee()" id="employeeId" name="employeeId">
+                                    <option value="" disabled selected hidden>Empolyee</option>
+                                    <option ng-repeat="emp in claimedit.employeeList" ng-selected="claimedit.employeeId === emp.id" value="{{emp.id}}">
+                                      {{emp.firstName}}&nbsp;{{emp.lastName}}
+                                    </option>
+                                  </select>
+                                </div>
+                                <div class="col-md-6 padright5">
+                                    <input type="text" disabled = "true" ng-model="claimedit.accountName" placeholder="Bank Account Name" class="form-control" id="accountName" name="accountName">
+                                </div>
+                            </div>
+                            <div class="row margin10">
+                              <div class="col-md-6 padright5">
+                                <input type="text" disabled = "true" ng-model="claimedit.accountNumber" placeholder="Bank Account Number" class="form-control" id="accountNumber" name="accountNumber">
+                              </div>
+                              <div class="col-md-6 padright5">
+                                <input type="text" disabled = "true" ng-model="claimedit.bankCode" placeholder="Bank and Branch Code" class="form-control" id="bankCode" name="bankCode">
+                              </div>
+                            </div>
+                            <div class="row margin10">
+                              <div class="col-md-6 padright5">
+                              </div>
+                              <div class="col-md-6 padright5">
+                                <input type="text" disabled = "true" ng-model="claimedit.claiminfo.amount" placeholder="Total Amount" class="form-control" id="amount" name="amount">
+                              </div>
+                            </div>
+                            <div class="row margin10">
+                                <button class="btn btn-primary btn-sm login-btn" style="min-width: 30px;" ng-click="claimedit.addDetails()" type="button">+</button>
+                                <div ng-if="claimedit.addDetailsShow" style="max-width:600px;">
+                                    <!--form  action="" style="max-width:600px;"-->
+                                    <div class="row margin10">
+                                        <!--<div class="col-md-6 padright5">
+                                          <input type="text" ng-model="claimedit.detailinfo.txnDate" placeholder="Transaction Date" class="form-control" id="trnasactionDate" name="trnasactionDate">
+                                        </div>-->
+                                        <div class="col-md-6 padright5">
+                                            <p class="input-group">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       init-date="claimedit.dateOptions.initDate"
+                                                       uib-datepicker-popup="{{claimedit.format}}"
+                                                       ng-model="claimedit.detailinfo.txnDate"
+                                                       is-open="claimedit.opened"
+                                                       min-date="claimedit.dateOptions.minDate"
+                                                       datepicker-options="claimedit.dateOptions"
+                                                       date-disabled="disabled(date, mode)"
+                                                       ng-required="true" close-text="Close" />
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default calbtn" ng-click="claimedit.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </div>
+
+
+
+                                        <!--<div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.costCenter" placeholder="Cost Center" class="form-control" id="costCenter" name="costCenter">
+                                        </div>-->
+                                        <div class="col-md-6 padright5">
+                                          <select class="form-control radius30" ng-disabled="false" ng-model="claimedit.detailinfo.costCenter" id="costCenter" name="costCenter">
+                                            <option value="" disabled selected hidden>Cost Center</option>
+                                            <option ng-repeat="cc in claimedit.costCenterList" ng-selected="claimedit.detailinfo.costCenter === cc.name" value="{{cc.value}}">
+                                              {{cc.name}}
+                                            </option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="row margin10">
+                                        <!--<div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.glCode" placeholder="GL Code" class="form-control" id="glCode" name="glCode">
+                                        </div>-->
+
+                                        <div class="col-md-6 padright5">
+                                          <select class="form-control radius30" ng-disabled="false" ng-model="claimedit.detailinfo.glCode" id="glCode" name="glCode">
+                                            <option value="" disabled selected hidden>GL Code</option>
+                                            <option ng-repeat="gl in claimedit.glCodeList" ng-selected="claimedit.detailinfo.glCode === gl.name" value="{{gl.code}}">
+                                              {{gl.code}}-{{gl.name}}
+                                            </option>
+                                          </select>
+                                        </div>
+                                        <div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.description" placeholder="Description" class="form-control" id="detdesc" name="detdesc">
+                                        </div>
+                                    </div>
+                                    <div class="row margin10">
+                                        <!--<div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.currency" placeholder="Currency" class="form-control" id="currency" name="currency">
+                                        </div>-->
+                                        <div class="col-md-6 padright5">
+                                          <select class="form-control radius30" ng-disabled="false" ng-model="claimedit.detailinfo.currency" id="currency" name="currency">
+                                            <option value="" disabled selected hidden>Currency</option>
+                                            <option ng-repeat="cr in claimedit.currencyList" ng-selected="claimedit.detailinfo.glCode === cr.name" value="{{cr.code}}">
+                                              {{cr.code}}-{{cr.name}}
+                                            </option>
+                                          </select>
+                                        </div>
+                                        <div class="col-md-6 padright5">
+                                            <input type="number" ng-model="claimedit.detailinfo.amount" placeholder="Amount" class="form-control" ng-change="claimedit.calcTotal()" id="detamount" name="detamount">
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin10">
+                                        <div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.gst" placeholder="GST" class="form-control" id="gst" ng-change="claimedit.calcTotal()" name="gst">
+                                        </div>
+                                        <div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.exchangeRate" placeholder="Exchange Rate" class="form-control" ng-change="claimedit.calcTotal()" id="exchangeRate" name="exchangeRate">
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin10">
+                                        <div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.recieptNo" placeholder="Recipt No" class="form-control" id="reciptNo" name="reciptNo">
+                                        </div>
+                                        <div class="col-md-6 padright5">
+                                            <input type="text" ng-model="claimedit.detailinfo.totalAmount" placeholder="Total Amount" class="form-control" id="totalAmount" name="totalAmount">
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin10">
+                                        <div class="col-md-12 padright5">
+                                            <button type="button" class="btn btn-default center-block login-btn" ng-click="claimedit.doneEdit()" >Add</button>
+                                        </div>
+                                    </div>
+
+                                    <!--/form-->
+                                </div>
+                            </div>
+                            <div class="row margin10">
+                                <div class="col-md-12 padright5">
+                                    <div grid-data grid-options="claimedit.gridOptions" grid-actions="claimedit.gridActions" id="dtGridDet">
+                                        <!-- sample table layout goes below, but remember that you can you any mark-up here. -->
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th sortable="txnDate" class="sortable">
+                                                        Date of Transaction
+                                                    </th>
+                                                    <th sortable="costCenter" class="sortable">
+                                                        Cost Center
+                                                    </th>
+                                                    <th sortable="glCode" class="sortable">
+                                                        GL Code
+                                                    </th>
+                                                    <th>
+                                                        Description
+                                                    </th>
+                                                    <th>
+                                                        Currency
+                                                    </th>
+                                                    <th sortable="amount" class="sortable">
+                                                        Amount
+                                                    </th>
+                                                    <th>
+                                                        GST
+                                                    </th>
+                                                    <th>
+                                                        Exchange Rate
+                                                    </th>
+                                                    <th sortable="receiptNo" class="sortable">
+                                                        Receipt No
+                                                    </th>
+                                                    <th sortable="totalAmount" class="sortable">
+                                                        Total Amount
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr grid-item>
+                                                    <td ng-bind="item.transactionDate | date:'MMM-dd-yyyy'"></td>
+                                                    <td ng-bind="item.costCenter"></td>
+                                                    <td ng-bind="item.glCode"></td>
+                                                    <td ng-bind="item.description"></td>
+                                                    <td ng-bind="item.currency"></td>
+                                                    <td ng-bind="item.amount"></td>
+                                                    <td ng-bind="item.gst"></td>
+                                                    <td ng-bind="item.exchangeRate"></td>
+                                                    <td ng-bind="item.recieptNo"></td>
+                                                    <td ng-bind="item.totalAmount"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 padright5">
+                                    <button class="btn btn-default center-block login-btn" style="min-width: 300px;" ng-click="claimedit.saveClaim()" type="button">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .calbtn {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 0;
+        background: transparent;
+    }
+    .calbtn:hover, .calbtn:active, .calbtn:focus, .calbtn:checked {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: 0;
+        background: transparent;
+    }
+</style>

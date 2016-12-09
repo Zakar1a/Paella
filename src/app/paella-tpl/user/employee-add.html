@@ -1,0 +1,110 @@
+<div class="row" id="dashboard">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <!--<h3 class="box-title">Dashboard</h3>-->
+                <!--<div style="margin-top: 14px;" class="user_line_arrow"></div>-->
+            </div>
+            <div class="box-body" style="display: inline-block;width:100%;margin-bottom: 50px;">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h3 style="margin-right: 85px;">New Employee</h3>
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <form class="form-signin" action="" style="max-width:600px;">
+                        <div class="col-md-10 padleft0">
+                            <div class="row margin10">
+                                <div class="col-md-6 padright5">
+                                    <input type="text" ng-model="employeeadd.empinfo.firstName" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                </div>
+                                <div class="col-md-6 padright5">
+                                  <input type="text" ng-model="employeeadd.empinfo.lastName" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                </div>
+                            </div>
+                            <div class="row margin10">
+                                <div class="col-md-6 padright5">
+                                  <input type="text" ng-model="employeeadd.empinfo.phone" placeholder="Phone" class="form-control" id="phone" name="phone">
+                                </div>
+                                <div class="col-md-6 padright5">
+                                    <input type="text" ng-model="employeeadd.empinfo.email" placeholder="Email" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="row margin10">
+                                <div class="col-md-6 padright5">
+                                    <input type="text" ng-model="employeeadd.empinfo.nric" placeholder="NRIC/Passport No." class="form-control" id="nricopass" name="nricopass">
+                                </div>
+                                <div class="col-md-6 padright5">
+                                    <input type="password" ng-model="employeeadd.empinfo.password" placeholder="Password" class="form-control" id="password" name="password">
+                                </div>
+                            </div>
+                            <!--<div class="row margin10">
+                              <div class="col-md-6 padright5">
+                                <p class="input-group">
+                                  <input type="text"
+                                         class="form-control"
+                                         init-date="employeeadd.dateOptions.initDate"
+                                         uib-datepicker-popup="{{employeeadd.format}}"
+                                         ng-model="employeeadd.empinfo.dob"
+                                         is-open="employeeadd.opened"
+                                         min-date="employeeadd.dateOptions.minDate"
+                                         datepicker-options="employeeadd.dateOptions"
+                                         date-disabled="disabled(date, mode)"
+                                         ng-required="true" close-text="Close" />
+                                          <span class="input-group-btn">
+                                              <button type="button" class="btn btn-default calbtn" ng-click="employeeadd.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                          </span>
+                                </p>
+                              </div>
+                            </div>-->
+                            <div class="row margin10">
+                              <div class="col-md-6 padright5">
+                                <input type="text" ng-model="employeeadd.empinfo.accountName" placeholder="Bank Account Name" class="form-control" id="accountName" name="accountName">
+                              </div>
+                              <div class="col-md-6 padright5">
+                                <input type="text" ng-model="employeeadd.empinfo.accountNumber" placeholder="Bank Account Number" class="form-control" id="accountNumber" name="accountNumber">
+                              </div>
+                            </div>
+                            <div class="row margin10">
+                              <div class="col-md-6 padright5">
+                                <input type="text" ng-model="employeeadd.empinfo.bankCode" placeholder="Bank and Branch Code" class="form-control" id="bankCode" name="bankCode">
+                              </div>
+                              <!--<div class="col-md-6 padright5">
+                                <select class="form-control radius30" ng-disabled="false" ng-model="employeeadd.EmpName" id="employee" name="employee">
+                                  <option ng-repeat="emp in employeeadd.employeeList" ng-selected="employeeadd.EmpName === emp.name" value="{{emp.name}}">
+                                    {{emp.name}}
+                                  </option>
+                                </select>
+                              </div>-->
+                            </div>
+                            <div class="row margin10">
+                                <div class="col-md-12 padright5">
+                                    <!--<button class="btn btn-default center-block login-btn" ng-click="useraccess.login()" type="button">Login</button>-->
+                                    <button class="btn btn-default center-block login-btn" style="min-width: 300px;" ng-click="employeeadd.addEmployee()" type="button">Create</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+  .calbtn {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+  .calbtn:hover, .calbtn:active, .calbtn:focus, .calbtn:checked {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+  }
+</style>

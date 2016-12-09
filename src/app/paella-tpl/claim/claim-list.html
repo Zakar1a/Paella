@@ -1,0 +1,99 @@
+<div class="row" id="dashboard">
+  <style>
+    .table > thead > tr > th {
+      vertical-align: middle;
+    }
+
+    .margin-bottom-basic {
+      margin-bottom: 15px;
+    }
+
+    .pagination {
+      margin: 0;
+    }
+
+    .items-per-page {
+      margin-left: 15px;
+    }
+
+    .sortable:after {
+      font: 14px/1 FontAwesome;
+      content: "\f0dc";
+    }
+
+    .sortable.sort-ascent:after {
+      content: '\f0de';
+      vertical-align: bottom;
+    }
+
+    .sortable.sort-descent:after {
+      content: "\f0dd";
+      vertical-align: top;
+    }
+  </style>
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header with-border">
+      </div>
+      <div class="box-body" style="display: inline-block;width:100%;margin-bottom: 50px;">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3>Claim List</h3>
+          </div>
+        </div>
+        <div class="row" style="padding: 20px;">
+          <div grid-data grid-options="claimlist.gridOptions" grid-actions="gridActions">
+            <table class="table">
+              <thead>
+              <tr>
+                <th sortable="id" class="sortable">
+                  ID #
+                </th>
+                <th sortable="firstName" class="sortable">
+                  First Name
+                </th>
+                <th sortable="lastName" class="sortable">
+                  Last Name
+                </th>
+                <th sortable="date" class="sortable">
+                  Claimed Date
+                </th>
+                <th sortable="amount" class="sortable">
+                  Claimed Amount
+                </th>
+                <th sortable='status' class="sortable">
+                  Status
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr grid-item>
+                <td ng-bind="item.id"></td>
+                <td ng-bind="item.employee.firstName"></td>
+                <td ng-bind="item.employee.lastName"></td>
+                <td ng-bind="item.claimDate | date:'MMM-dd-yyyy'"></td>
+                <td ng-bind="item.amount"></td>
+                <!--<td ng-bind="item.status"></td>-->
+
+                <td>
+                  <span ng-if="item.status == 1">
+                    Already Approved
+                  </span>
+                  <button ng-if="item.status == 0" type="button" class="btn btn-primary btn-xs" ng-click="claimlist.approveClaim(item.id)">Approve</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-xs" ng-click="claimlist.forwardToClaim(item.id)">Show</button>
+                </td>
+
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

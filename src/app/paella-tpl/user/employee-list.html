@@ -1,0 +1,85 @@
+<div class="row" id="dashboard">
+    <style>
+        .table > thead > tr > th {
+            vertical-align: middle;
+        }
+
+        .margin-bottom-basic {
+            margin-bottom: 15px;
+        }
+
+        .pagination {
+            margin: 0;
+        }
+
+        .items-per-page {
+            margin-left: 15px;
+        }
+
+        .sortable:after {
+            font: 14px/1 FontAwesome;
+            content: "\f0dc";
+        }
+
+        .sortable.sort-ascent:after {
+            content: '\f0de';
+            vertical-align: bottom;
+        }
+
+        .sortable.sort-descent:after {
+            content: "\f0dd";
+            vertical-align: top;
+        }
+    </style>
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body" style="display: inline-block;width:100%;margin-bottom: 50px;">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h3>Employee List</h3>
+                    </div>
+                </div>
+                <div class="row" style="padding: 20px;">
+                    <div grid-data grid-options="employeelist.gridOptions" grid-actions="gridActions">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th sortable="id" class="sortable">
+                                        ID #
+                                    </th>
+                                    <th sortable="nric" class="sortable">
+                                        NRIC
+                                    </th>
+                                    <th sortable="firstName" class="sortable">
+                                        First Name #
+                                    </th>
+                                    <th sortable="lastName" class="sortable">
+                                        Last Name #
+                                    </th>
+                                    <th sortable="email" class="sortable">
+                                        Email #
+                                    </th>
+                                    <th sortable='phone' class="sortable">
+                                        Phone
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr grid-item>
+                                    <td ng-bind="item.id"></td>
+                                    <td ng-bind="item.nric"></td>
+                                    <td ng-bind="item.firstName"></td>
+                                    <td ng-bind="item.lastName"></td>
+                                    <td ng-bind="item.email"></td>
+                                    <td ng-bind="item.phone"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
